@@ -32,7 +32,7 @@ class Vehicles_model extends CI_Model {
     /* Get vehicle based on stock number */
     public function get_vehicle($vehicle) {
     
-        return $this->db->query("SELECT * FROM dealer_inventory where stock_number='$vehicle' limit 100");
+        return $this->db->query("SELECT * FROM dealer_inventory where stock_number='$vehicle' limit 1");
     } 
     
     /* Get vehicle based on make and model */
