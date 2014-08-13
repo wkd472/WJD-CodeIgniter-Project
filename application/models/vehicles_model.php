@@ -16,17 +16,17 @@ class Vehicles_model extends CI_Model {
    
     /* Get all vehicle data */ 
     public function get_all_vehicles() {
-        return $this->db->query("SELECT * FROM dealer_inventory limit 100;");
+        return $this->db->query("SELECT id, fid, stock_number, inventory_date, vehicle_type, invoice_price, msrp, lot_location, make, model, model_year FROM dealer_inventory limit 100;");
     } 
     
     /* Get vehicle data ordered by invoice price high-low */
     public function get_all_sort_desc() {
-        return $this->db->query("SELECT * FROM dealer_inventory group by invoice_price order by invoice_price desc limit 100;");
+        return $this->db->query("SELECT id, fid, stock_number, inventory_date, vehicle_type, invoice_price, msrp, lot_location, make, model, model_year FROM dealer_inventory where vehicle_type='new' order by invoice_price desc limit 100;");
     } 
     
     /* Get vehicle data ordered by invoice price low-high*/
     public function get_all_sort_asc() {
-        return $this->db->query("SELECT * FROM dealer_inventory group by invoice_price order by invoice_price asc limit 100;");
+        return $this->db->query("SELECT id, fid, stock_number, inventory_date, vehicle_type, invoice_price, msrp, lot_location, make, model, model_year FROM dealer_inventory where vehicle_type='new' order by invoice_price asc limit 100;");
     } 
     
     /* Get vehicle based on stock number */
